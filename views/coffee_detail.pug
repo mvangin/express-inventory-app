@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1 Coffee Detail Page
+  ul(class="coffee-detail")
+    li
+      h2 #{coffeeItem.name}
+    li Description: #{coffeeItem.description}
+    li Roasting: #{coffeeItem.categories.name}
+    li Brand: #{coffeeItem.brand.name}
+    li Price: $#{coffeeItem.price}
+    li Roasting Location: #{coffeeItem.location}
+    li Stock: #{coffeeItem.stock}

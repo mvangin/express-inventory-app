@@ -117,10 +117,10 @@ function categoryCreateSeries(cb) {
 function coffeeCreateSeries(cb) {
   async.parallel([
       function(callback) {
-        coffeeCreate('Columbia', 'velvety smooth ground coffee', categories[0], brands[0], 20, 'Mountain View', 10, callback);
+        coffeeCreate('Columbia smoky fluff', 'velvety smooth ground coffee', categories[0], brands[0], 20, 'Mountain View', 10, callback);
       },
       function(callback) {
-        coffeeCreate('Panama', 'velvety smooth ground coffee2', categories[1], brands[1], 25, 'san Jose', 30, callback);
+        coffeeCreate('Panama lush rain', 'velvety smooth ground coffee2', categories[1], brands[1], 25, 'san Jose', 30, callback);
       },
       ],
       // optional callback

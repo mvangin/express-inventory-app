@@ -15,6 +15,7 @@ router.get('/', function(req,res,err) {
 
 router.get('/coffee', coffeeController.coffeeList);
 
+router.get('/coffee/:id', coffeeController.coffee_detail)
 //router.get('/bikeInstance', coffeeController.bikeInstance);
 
 

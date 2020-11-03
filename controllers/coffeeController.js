@@ -8,9 +8,23 @@ exports.coffeeList = function(req, res, err) {
         if (err) {
             return next(err) 
         }
-        res.render('coffeeList',{title: 'Coffee list', coffeeList})
+        res.render('coffeeList',{title: 'Coffee Inventory', coffeeList})
     })
 }
+
+exports.coffee_detail = function(req, res, err) {
+    Coffee.findById(req.params.id)
+    .populate('categories')
+    .populate('brand')
+    .exec(function(err, coffeeItem) {
+        if (err) {
+            return next(err) 
+        }
+        console.log(coffeeItem)
+        res.render('coffee_detail',{coffeeItem})
+    })
+}
+
 
 /* exports.bikeInstance = function (req, res, err) {
     BikeInstance.find({}, 'bike')

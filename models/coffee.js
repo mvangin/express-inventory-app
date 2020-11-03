@@ -15,7 +15,7 @@ let coffeeSchema = new Schema({
 coffeeSchema
 .virtual('url')
 .get(function() {
-    return '/catalog/coffee' + this._id;
+    return '/catalog/coffee/' + this._id;
 });
 
 module.exports = mongoose.model('Coffee', coffeeSchema)
