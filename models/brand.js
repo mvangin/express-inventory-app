@@ -3,7 +3,7 @@ let mongoose = require('mongoose');
 let Schema = mongoose.Schema
 
 let brandSchema = new Schema({
-    name: {type: String, required: true, maxLength: 100, enum: ['Specialized', 'Santa Cruz', 'Public', 'Yuba'], default: 'Specialized'},
+    name: {type: String, required: true, maxLength: 100},
     description: String
 })
 

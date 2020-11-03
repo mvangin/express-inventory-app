@@ -1,0 +1,10 @@
+extends layout
+
+block content 
+    p= title
+    ul 
+        each coffee in coffeeList 
+            li 
+                a(href coffee.url) #{coffee.name}
+                | 
+                a(href coffee.categories.url) #{coffee.categories.name}

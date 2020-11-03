@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 
-console.log('This script populates some test bikes, categories, and brands to your database. Specified database as argument - e.g.: populatedb mongodb+srv://cooluser:coolpassword@cluster0.a9azn.mongodb.net/local_library?retryWrites=true');
+console.log('This script populates some test coffee, categories, and brands to your database. Specified database as argument - e.g.: populatedb mongodb+srv://cooluser:coolpassword@cluster0.a9azn.mongodb.net/local_library?retryWrites=true');
 
 // Get arguments passed on command line
 var userArgs = process.argv.slice(2);
@@ -11,7 +11,7 @@ if (!userArgs[0].startsWith('mongodb')) {
 }
 */
 var async = require('async')
-var Bike = require('./models/bike')
+var Coffee = require('./models/coffee')
 var Brand = require('./models/brand')
 var Category = require('./models/category')
 var BikeInstance = require('./models/bikeInstance')
@@ -26,8 +26,8 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 var brands = []
 var categories = []
-var bikes = []
-var bikeInstances = []
+var coffees = []
+//var bikeInstances = []
 
 function brandCreate(name, description, cb) {
 
@@ -41,7 +41,7 @@ function brandCreate(name, description, cb) {
     console.log('New Brand: ' + brand);
     brands.push(brand)
     cb(null, brand)
-  }  );
+  });
 }
 
 function categoryCreate(name, cb) {
@@ -58,19 +58,20 @@ function categoryCreate(name, cb) {
 }
 
 
-function bikeCreate(name, description, color, categories, brand, price, cb) {
-  let bike = new Bike({name, description, color, categories, brand, price})
-  bike.save(function(err){
+function coffeeCreate(name, description, categories, brand, price, location, stock, cb) {
+  let coffee = new Coffee({name, description, categories, brand, price, location, stock})
+  coffee.save(function(err){
     if (err) {
       cb(err, null)
       return
     }
-    console.log("new bike: " + bike)
-    bikes.push(bike);
-    cb(null,bike)
+    console.log("new coffee: " + coffee)
+    coffees.push(coffee);
+    cb(null,coffee)
   })
 }
 
+/*
 function bikeInstanceCreate(bike, cb) {
   let bikeInstance = new BikeInstance({bike})
   bikeInstance.save(function(err){
@@ -83,14 +84,15 @@ function bikeInstanceCreate(bike, cb) {
     cb(null,bikeInstance)
   })
 }
+*/
 
 function brandCreateSeries(cb) {
     async.parallel([
         function(callback) {
-          brandCreate('Specialized', 'this is the main brand', callback);
+          brandCreate('Dana Street Roasting', 'this is the main brand', callback);
         },
         function(callback) {
-          brandCreate('Santa Cruz', 'this is the second brand', callback);
+          brandCreate('Verve Coffee Roasting', 'this is the second brand', callback);
         },
         ],
 
@@ -101,55 +103,56 @@ function brandCreateSeries(cb) {
 function categoryCreateSeries(cb) {
   async.parallel([
       function(callback) {
-        categoryCreate('Mountain Bike', callback);
+        categoryCreate('Light Roast', callback);
       },
       function(callback) {
-        categoryCreate('Road bike', callback);
+        categoryCreate('Dark Roast', callback);
       },
       ],
       // optional callback
       cb);
 }
 
-function bikeCreateSeries(cb) {
+
+function coffeeCreateSeries(cb) {
   async.parallel([
       function(callback) {
-        bikeCreate('Aethos', 'Newest and greatest', 'Amber', categories[0], brands[0], 10000, callback);
+        coffeeCreate('Columbia', 'velvety smooth ground coffee', categories[0], brands[0], 20, 'Mountain View', 10, callback);
       },
       function(callback) {
-        bikeCreate('Stump jumper', 'Best in business', 'black', categories[1], brands[1], 3000, callback);
+        coffeeCreate('Panama', 'velvety smooth ground coffee2', categories[1], brands[1], 25, 'san Jose', 30, callback);
       },
       ],
       // optional callback
       cb);
 }
 
-function bikeInstanceCreateSeries(cb) {
+/* function bikeInstanceCreateSeries(cb) {
   async.parallel([
       function(callback) {
-        bikeInstanceCreate(bikes[0], callback);
+        bikeInstanceCreate(coffees[0], callback);
       },
       function(callback) {
-        bikeInstanceCreate(bikes[0], callback);
+        bikeInstanceCreate(coffees[0], callback);
       },
       function(callback) {
-        bikeInstanceCreate(bikes[0], callback);
+        bikeInstanceCreate(coffees[0], callback);
       },
       function(callback) {
-        bikeInstanceCreate(bikes[1], callback);
+        bikeInstanceCreate(coffees[1], callback);
       },
       ],
 
       // optional callback
       cb);
 }
-
+*/
 
 async.series([
     brandCreateSeries,
     categoryCreateSeries,
-    bikeCreateSeries,
-    bikeInstanceCreateSeries
+    coffeeCreateSeries,
+    //bikeInstanceCreateSeries
 ],
 // Optional callback
 function(err, results) {

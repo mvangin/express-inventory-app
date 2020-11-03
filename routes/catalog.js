@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var bikeController = require('../controllers/bikeController')
+var coffeeController = require('../controllers/coffeeController')
 var brandController = require('../controllers/brandController')
 var categoryController = require('../controllers/categoryController')
 
@@ -13,9 +13,9 @@ router.get('/', function(req,res,err) {
 
 //router.get('/category', categoryController.CategoryList)
 
-router.get('/bike', bikeController.bikeList);
+router.get('/coffee', coffeeController.coffeeList);
 
-router.get('/bikeInstance', bikeController.bikeInstance);
+//router.get('/bikeInstance', coffeeController.bikeInstance);
 
 
 //router.get('/brand', brandController.BrandList);
