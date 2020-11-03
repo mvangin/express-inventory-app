@@ -14,19 +14,20 @@ var async = require('async')
 var Bike = require('./models/bike')
 var Brand = require('./models/brand')
 var Category = require('./models/category')
+var BikeInstance = require('./models/bikeInstance')
 
 
 var mongoose = require('mongoose');
 var mongoDB = userArgs[0];
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 var db = mongoose.connection;
-mongoose.Promise = global.Promise;
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 var brands = []
 var categories = []
 var bikes = []
+var bikeInstances = []
 
 function brandCreate(name, description, cb) {
 
@@ -68,11 +69,23 @@ function bikeCreate(name, description, color, categories, brand, price, cb) {
     bikes.push(bike);
     cb(null,bike)
   })
+}
 
+function bikeInstanceCreate(bike, cb) {
+  let bikeInstance = new BikeInstance({bike})
+  bikeInstance.save(function(err){
+    if (err) {
+      cb(err, null)
+      return
+    }
+    console.log("new bikeInstance: " + bikeInstance)
+    bikeInstances.push(bikeInstance);
+    cb(null,bikeInstance)
+  })
 }
 
 function brandCreateSeries(cb) {
-    async.series([
+    async.parallel([
         function(callback) {
           brandCreate('Specialized', 'this is the main brand', callback);
         },
@@ -86,7 +99,7 @@ function brandCreateSeries(cb) {
 }
 
 function categoryCreateSeries(cb) {
-  async.series([
+  async.parallel([
       function(callback) {
         categoryCreate('Mountain Bike', callback);
       },
@@ -99,7 +112,7 @@ function categoryCreateSeries(cb) {
 }
 
 function bikeCreateSeries(cb) {
-  async.series([
+  async.parallel([
       function(callback) {
         bikeCreate('Aethos', 'Newest and greatest', 'Amber', categories[0], brands[0], 10000, callback);
       },
@@ -111,12 +124,32 @@ function bikeCreateSeries(cb) {
       cb);
 }
 
+function bikeInstanceCreateSeries(cb) {
+  async.parallel([
+      function(callback) {
+        bikeInstanceCreate(bikes[0], callback);
+      },
+      function(callback) {
+        bikeInstanceCreate(bikes[0], callback);
+      },
+      function(callback) {
+        bikeInstanceCreate(bikes[0], callback);
+      },
+      function(callback) {
+        bikeInstanceCreate(bikes[1], callback);
+      },
+      ],
+
+      // optional callback
+      cb);
+}
 
 
 async.series([
     brandCreateSeries,
     categoryCreateSeries,
-    bikeCreateSeries
+    bikeCreateSeries,
+    bikeInstanceCreateSeries
 ],
 // Optional callback
 function(err, results) {
