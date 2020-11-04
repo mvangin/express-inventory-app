@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1 Brand Detail Page
+  ul
+    li
+      h2 #{brandItem.name}
+    li Description: #{brandItem.description}
+  each brand in brandCoffee
+    li= brand.name
+    li= brand.description

@@ -15,3 +15,17 @@ h1 {
 li {
   list-style: none;
 }
+
+.update-inventory {
+  padding: 10px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.delete-inventory {
+  padding: 10px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin: 5px;
+}

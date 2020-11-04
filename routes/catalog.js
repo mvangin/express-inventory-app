@@ -15,11 +15,14 @@ router.get('/', function(req,res,err) {
 
 router.get('/coffee', coffeeController.coffeeList);
 
-router.get('/coffee/:id', coffeeController.coffee_detail)
+router.get('/coffee/:id', coffeeController.coffeeDetail)
 //router.get('/bikeInstance', coffeeController.bikeInstance);
 
+router.get('/coffee/:id/update', coffeeController.coffeeUpdate);
 
+router.get('/brand', brandController.brandList);
+
+router.get('/brand/:id', brandController.brandDetail)
 //router.get('/brand', brandController.BrandList);
-
 
 module.exports = router;

@@ -12,7 +12,7 @@ exports.coffeeList = function(req, res, err) {
     })
 }
 
-exports.coffee_detail = function(req, res, err) {
+exports.coffeeDetail = function(req, res, err) {
     Coffee.findById(req.params.id)
     .populate('categories')
     .populate('brand')
@@ -24,6 +24,24 @@ exports.coffee_detail = function(req, res, err) {
         res.render('coffee_detail',{coffeeItem})
     })
 }
+
+
+exports.coffeeUpdate = function(req, res, err) {
+    Coffee.findById(req.params.id)
+    .populate('categories')
+    .populate('brand')
+    .exec(function(err, coffeeItem) {
+        if (err) {
+            return next(err) 
+        }
+        console.log(coffeeItem)
+        res.render('coffeeUpdate',{coffeeItem})
+    })
+}
+
+
+
+
 
 
 /* exports.bikeInstance = function (req, res, err) {

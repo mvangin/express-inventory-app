@@ -11,3 +11,10 @@ block content
     li Price: $#{coffeeItem.price}
     li Roasting Location: #{coffeeItem.location}
     li Stock: #{coffeeItem.stock}
+  
+  a(href= coffeeItem.url + "/update") 
+    button(class="update-inventory") Update
+
+  a(href= coffeeItem.url + "/delete") 
+    button(class="delete-inventory") Delete
+
