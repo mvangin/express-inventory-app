@@ -15,6 +15,6 @@ block content
   a(href= coffeeItem.url + "/update") 
     button(class="update-inventory") Update
 
-  a(href= coffeeItem.url + "/delete") 
-    button(class="delete-inventory") Delete
+  form(method="post" action=coffeeItem.url + "/delete")
+    button(type="submit" class="delete-inventory") Delete
 

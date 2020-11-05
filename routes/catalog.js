@@ -18,7 +18,12 @@ router.get('/coffee', coffeeController.coffeeList);
 router.get('/coffee/:id', coffeeController.coffeeDetail)
 //router.get('/bikeInstance', coffeeController.bikeInstance);
 
-router.get('/coffee/:id/update', coffeeController.coffeeUpdate);
+router.get('/coffee/:id/update', coffeeController.coffeeUpdateGet);
+
+router.post('/coffee/:id/update', coffeeController.coffeeUpdatePost)
+
+router.post('/coffee/:id/delete', coffeeController.coffeeDeletePost)
+
 
 router.get('/brand', brandController.brandList);
 

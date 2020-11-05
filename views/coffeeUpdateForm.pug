@@ -1,0 +1,35 @@
+extends layout
+
+block content 
+    h1 coffeeUpdate!!
+    form(method='post')
+        div
+            label Name
+            <br>
+            input(type="text" name="name" value=`${coffeeItem.name}` )
+        div
+            label Description
+            <br>
+            input(type="text"  name="description" value=`${coffeeItem.description}`) 
+        div
+            label Roast
+            <br>
+            input(type="text" name = "category" value=`${coffeeItem.categories.name}` disabled="disabled") 
+        div
+            label Brand
+            <br>
+            input(type="text" name="brand" value=`${coffeeItem.brand.name}` disabled="disabled")
+        div
+            label Price
+            <br>
+            input(type="text" name="price" value=`${coffeeItem.price}`) 
+        div
+            label Location
+            <br>
+            input(type="text"  name="location" value=`${coffeeItem.location}`) 
+        div
+            label Stock
+            <br>
+            input(type="text"  name="stock" value=`${coffeeItem.stock}`) 
+
+        button(type="submit" action= coffeeItem.url + "/update") Submit
