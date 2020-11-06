@@ -1,0 +1,37 @@
+extends layout
+
+block content
+    h1 CoffeeCreate!!
+    form(method='post')
+        div
+            label Name
+            <br>
+            input(type="text" name="name" value="")
+        div
+            label Description
+            <br>
+            input(type="text"  name="description" value="" ) 
+        div
+            label Roast
+            <br>
+            input(type="text" name = "category" value="" ) 
+        div
+            label(for="brands") Brand
+            <br>
+            select(name="brand" id="brands" value="")
+                each brand in brands
+                    option(value=brand._id)= brand.name
+        div
+            label Price
+            <br>
+            input(type="text" name="price" value="") 
+        div
+            label Location
+            <br>
+            input(type="text"  name="location" value="") 
+        div
+            label Stock
+            <br>
+            input(type="text"  name="stock" value="") 
+
+        button(type="submit" action='/catalog/coffee/create') Submit
