@@ -20,6 +20,8 @@ router.get('/coffee/:id', coffeeController.coffeeDetail)
 
 router.get('/coffee/:id/update', coffeeController.coffeeUpdateGet);
 
+//router.get('/coffee/create', coffeeController.coffeeCreate);
+
 router.post('/coffee/:id/update', coffeeController.coffeeUpdatePost)
 
 router.post('/coffee/:id/delete', coffeeController.coffeeDeletePost)

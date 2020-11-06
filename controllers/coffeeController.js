@@ -1,8 +1,11 @@
 let Coffee = require('../models/coffee');
+let Brand = require('../models/brand')
 const { body, validationResult } = require('express-validator')
+let async = require('async')
 //let BikeInstance = require('../models/bikeInstance')
 
 exports.coffeeList = function (req, res, err) {
+    console.log(Coffee.find({}))
     Coffee.find({}, 'name categories')
         .populate('categories')
         .exec(function (err, coffeeList) {
@@ -26,20 +29,39 @@ exports.coffeeDetail = function (req, res, err) {
         })
 }
 
-
 exports.coffeeUpdateGet = function (req, res, err) {
-    Coffee.findById(req.params.id)
-        .populate('categories')
-        .populate('brand')
-        .exec(function (err, coffeeItem) {
-            if (err) {
-                return next(err)
+    async.parallel({
+        brands: function (callback) {
+            Brand.find({}, "name")
+                .exec(callback)
+        },
+        coffeeItem: function (callback) {
+            Coffee.findById(req.params.id)
+            .populate('categories')
+            .populate('brand')
+            .exec(callback)
+        },
+    }, function (err, results) {
+        if (err) {
+            return next(err)
+        }
+        let selectedBrand
+        results.brands.forEach(brand => {
+            console.log(brand._id + " first")
+            console.log(results.coffeeItem.brand._id + "   second")
+            console.log(typeof results.coffeeItem.brand._id )
+       
+            if (brand._id.toString() == results.coffeeItem.brand._id.toString()) {
+                selectedBrand = brand
             }
-            console.log(coffeeItem)
-            res.render('coffeeUpdateForm', { coffeeItem })
         })
-}
 
+
+        console.log(results.brands)
+        console.log("coffeeItem " + results.coffeeItem)
+        res.render('coffeeUpdateForm', { brands : results.brands, coffeeItem : results.coffeeItem, selectedBrand})
+    })
+}
 
 exports.coffeeUpdatePost = function (req, res, err) {
     const errors = validationResult(req);

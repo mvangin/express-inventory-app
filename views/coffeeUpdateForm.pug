@@ -16,9 +16,14 @@ block content
             <br>
             input(type="text" name = "category" value=`${coffeeItem.categories.name}` disabled="disabled") 
         div
-            label Brand
+            label(for="brands") Brand
             <br>
-            input(type="text" name="brand" value=`${coffeeItem.brand.name}` disabled="disabled")
+            select(name="brand" id="brands")
+                each brand in brands
+                    if brand==selectedBrand
+                        option(value=brand._id selected)= brand.name
+                    else 
+                        option(value=brand._id)= brand.name
         div
             label Price
             <br>

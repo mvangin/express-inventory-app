@@ -5,6 +5,7 @@ block content
     ul 
         each coffee in coffeeList 
             li 
-                a(href=coffee.url) #{coffee.name}
-                | 
-                p #{coffee.categories.name}
+                a(href=coffee.url) #{coffee.name} 
+                | : #{coffee.categories.name} 
+            br
+            
