@@ -9,3 +9,6 @@ block content
   each brand in brandCoffee
     li= brand.name
     li= brand.description
+
+  form(method="post" action=brandItem.url + "/delete")
+    button(type="submit" class="delete-inventory") Delete

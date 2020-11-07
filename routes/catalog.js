@@ -33,7 +33,15 @@ router.post('/coffee/:id/delete', coffeeController.coffeeDeletePost)
 
 router.get('/brand', brandController.brandList);
 
+router.get("/brand/create", brandController.brandCreateGet)
+
+router.post("/brand/create", brandController.brandCreatePost)
+
+
 router.get('/brand/:id', brandController.brandDetail)
+
+router.post('/brand/:id/delete', brandController.brandDeletePost)
+
 //router.get('/brand', brandController.BrandList);
 
 module.exports = router;
