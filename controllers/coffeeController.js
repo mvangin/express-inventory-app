@@ -8,18 +8,17 @@ var mongoose = require('mongoose');
 
 exports.coffeeList = function (req, res, next) {
     Coffee.find({}, 'name categories')
-        .populate('categories')
         .exec(function (err, coffeeList) {
             if (err) {
                 return next(err)
             }
+            console.log(coffeeList)
             res.render('coffeeList', { title: 'Coffee Inventory', coffeeList })
         })
 }
 
 exports.coffeeDetail = function (req, res, next) {
     Coffee.findById(req.params.id)
-        .populate('categories')
         .populate('brand')
         .exec(function (err, coffeeItem) {
             if (err) {
@@ -37,7 +36,6 @@ exports.coffeeUpdateGet = function (req, res, next) {
         },
         coffeeItem: function (callback) {
             Coffee.findById(req.params.id)
-                .populate('categories')
                 .populate('brand')
                 .exec(callback)
         },

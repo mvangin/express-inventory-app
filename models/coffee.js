@@ -5,7 +5,7 @@ let Schema = mongoose.Schema;
 let coffeeSchema = new Schema({
     name: {type: String, required: true, maxLength: 100},
     description: String, 
-    categories: {type: Schema.Types.ObjectId, ref: 'Category', required: true},
+    categories: String,
     brand: {type: Schema.Types.ObjectId, ref: 'Brand', required: true},
     price: Number,
     location: String,
