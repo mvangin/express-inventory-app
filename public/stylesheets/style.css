@@ -1,6 +1,7 @@
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
 }
 
 a {
@@ -11,6 +12,13 @@ h1 {
   color: rgb(177, 39, 39);
 }
 
+.navbar-brand-color {
+  color: rgb(177, 39, 39) !important;
+}
+
+h5 {
+  color: rgb(177, 39, 39) !important;
+}
 
 li {
   list-style: none;
@@ -28,4 +36,24 @@ li {
   border: 1px solid grey;
   border-radius: 5px;
   margin: 5px;
+}
+
+button {
+  padding: 10px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.coffeeButton {
+  color: white;
+}
+
+.newCoffee {
+  margin: 10px;
+  font-size: 20px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  
+
 }
