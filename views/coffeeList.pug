@@ -1,20 +1,18 @@
 extends layout
 
 block content
-    div(class="mt-3 mb-3 text-center")
+    div(class="mb-3 text-center")
         h1= title
-            a(href="/catalog/coffee/create" class="btn newCoffee") +
-         
-            
-    ul(class="d-flex justify-content-between flex-wrap") 
+            a(href="/catalog/coffee/create" class="btn newInventory") +
+                
+    div(class="d-flex justify-content-center justify-content-md-around flex-wrap text-center") 
         each coffee in coffeeList 
-            li 
-                div(class="card mb-3" style="width: 18rem;")
-                    img(class="card-img-top" src="https://cdn.pixabay.com/photo/2015/09/01/21/00/coffee-917613_960_720.jpg" alt="Card image cap")
-                    div(class="card-body")
-                        h5(class="card-title") #{coffee.name}
-                        p(class="card-text") 
-                            p #{coffee.categories} 
-                            a(href=coffee.url class="btn coffeeButton btn-danger") Details
+            div(class="card mb-3" style="width: 18rem;")
+                img(class="card-img-top" src="https://cdn.pixabay.com/photo/2015/09/01/21/00/coffee-917613_960_720.jpg" alt="Card image cap")
+                div(class="card-body")
+                    h5(class="card-title") #{coffee.name}
+                    p(class="card-text") 
+                        p #{coffee.categories} 
+                        a(href=coffee.url class="btn coffeeButton btn-danger") Details
     
     

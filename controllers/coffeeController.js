@@ -72,6 +72,8 @@ exports.coffeeUpdatePost = function (req, res, next) {
             return next(err);
         }
         // Successful - redirect to book detail page.
+        console.log(req.body.price)
+
         res.redirect(coffeeItem.url);
     });
 }

@@ -1,14 +1,14 @@
 extends layout
 
 block content
-  h1 Brand Detail Page
+  h1 #{brandItem.name}
   ul
-    li
-      h2 #{brandItem.name}
     li Description: #{brandItem.description}
+  
+  h2 Coffee types
   each brand in brandCoffee
     li= brand.name
-    li= brand.description
+    br 
 
   form(method="post" action=brandItem.url + "/delete")
-    button(type="submit" class="delete-inventory") Delete
+    button(type="submit" class="delete-inventory btn-secondary") Delete

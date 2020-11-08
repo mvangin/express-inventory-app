@@ -1,9 +1,15 @@
 extends layout
 
 block content
+    h1 Create new brand
+    
     form(method="post")
-        label(for="name") Name
-            input(name="name" type="string" value="")
-        label(for="description") Description
-            input(name="description" type="string" value="")
-        button(type="submit" action="/catalog/brand/create") Create
+        div(class="form-group")
+            label(for="name") Name
+            input(type="string" name="name" class="form-control" aria-describedby="name" value="")
+
+        div(class="form-group")
+            label(for="description") Description
+            input(type="string" name="description" class="form-control" aria-describedby="description" value="")
+
+        button(type="submit" class="btn btn-danger" action="/catalog/brand/create") Create

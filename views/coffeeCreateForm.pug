@@ -1,37 +1,38 @@
 extends layout
 
 block content
-    h1 CoffeeCreate!!
-    form(method='post')
-        div
-            label Name
-            <br>
-            input(type="text" name="name" value="")
-        div
-            label Description
-            <br>
-            input(type="text"  name="description" value="" ) 
-        div
-            label Roast
-            <br>
-            input(type="text" name = "categories" value="" ) 
-        div
+    h1 Create new coffee
+
+    form(method="post")
+        div(class="form-group")
+            label(for="name") Name
+            input(type="text" name="name" class="form-control" aria-describedby="name" value="")
+            
+        div(class="form-group")
+            label(for="description") Description
+            input(type="text" name="description" class="form-control" aria-describedby="description" value="")
+
+        div(class="form-group")
+            label(for="categories") Roast
+            input(type="text" name="categories" class="form-control" aria-describedby="roast" value="")
+
+        div(class="form-group")
             label(for="brands") Brand
-            <br>
-            select(name="brand" id="brands" value="")
+            select(name="brand" class="form-control" aria-describedby="brands" id="brands" value="")
                 each brand in brands
                     option(value=brand._id)= brand.name
-        div
-            label Price
-            <br>
-            input(type="text" name="price" value="") 
-        div
-            label Location
-            <br>
-            input(type="text"  name="location" value="") 
-        div
-            label Stock
-            <br>
-            input(type="text"  name="stock" value="") 
 
-        button(type="submit" action='/catalog/coffee/create') Submit
+        div(class="form-group")
+            label(for="price") Price
+            input(type="text" name="price" class="form-control" aria-describedby="price" value="")
+
+        div(class="form-group")
+            label(for="location") Location
+            input(type="text" name="location" class="form-control" aria-describedby="location" value="")
+
+        div(class="form-group")
+            label(for="stock") Stock
+            input(type="text" name="stock" class="form-control" aria-describedby="stock" value="")
+
+        button(type="submit" class="btn btn-danger" action='/catalog/coffee/create') Create
+

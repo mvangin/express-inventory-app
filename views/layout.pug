@@ -6,23 +6,31 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
 
   body
-    nav(class="navbar navbar-expand-md navbar-light bg-light")
-      a(class="navbar-brand navbar-brand-color" href="/catalog") Snuffers Coffee Inventory
-      button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
-        span(class="navbar-toggler-icon")
-  
-      div(class="collapse navbar-collapse" id="navbarSupportedContent")
-        ul(class="navbar-nav ")
-          li(class="nav-item active")
-            a(class="nav-link" href="/catalog/coffee") Coffee
+    nav(class="navbar navbar-expand-sm navbar-light bg-light fixed-top")
+        button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+          span(class="navbar-toggler-icon")
+        a(class="navbar-brand navbar-brand-color" href="/catalog") Snuffels Coffee Inventory
 
-        ul(class="navbar-nav ")
-          li(class="nav-item active")
-            a(class="nav-link" href="/catalog/brand") Brands
+    
+        div(class="collapse navbar-collapse" id="navbarSupportedContent")
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            li(class="nav-item dropdown")
+              a(class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Brands
+              div(class="dropdown-menu" aria-labelledby="navbarDropdown")
+                a(class="dropdown-item" href="/catalog/brand") View All Brands
+                div(class="dropdown-divider")
+                a(class="dropdown-item" href="/catalog/brand/create") Add Brand
+
+            li(class="nav-item dropdown")
+              a(class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Coffee
+              div(class="dropdown-menu" aria-labelledby="navbarDropdown")
+                a(class="dropdown-item" href="/catalog/coffee") View All Coffee
+                div(class="dropdown-divider")
+                a(class="dropdown-item" href="/catalog/coffee/create") Add Coffee
 
 
 
-  body
+  body(class="container")
     block content
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

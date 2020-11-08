@@ -1,11 +1,15 @@
 extends layout
 
 block content 
-    h1= title
-    ul 
+    h1(class="text-center mb-4")= title
+        a(href="/catalog/brand/create" class="btn newInventory") +
+    div(class="d-flex justify-content-center justify-content-md-around flex-wrap text-center") 
         each brand in brandList 
-            li 
-                a(href=brand.url) #{brand.name}
-                br
-                br
-    a(href="/catalog/brand/create") New Brand   
+            div(class="card mb-3" style="width: 18rem;")
+                img(class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Premium-geisha-coffee-beans.jpg" alt="Card image cap")
+                div(class="card-body")
+                    h5(class="card-title") #{brand.name}
+                    p(class="card-text") 
+                        a(href=brand.url class="btn coffeeButton btn-danger") Details
+    
+    

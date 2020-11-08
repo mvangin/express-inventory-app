@@ -1,20 +1,20 @@
 extends layout
 
 block content
-  h1 Coffee Detail Page
-  ul(class="coffee-detail")
-    li
-      h2 #{coffeeItem.name}
+  h1 #{coffeeItem.name}
+  ul(class="coffee-detail")   
     li Description: #{coffeeItem.description}
-    li Roasting: #{coffeeItem.categories.name}
+    li Roasting: #{coffeeItem.categories}
     li Brand: #{coffeeItem.brand.name}
     li Price: $#{coffeeItem.price}
     li Roasting Location: #{coffeeItem.location}
     li Stock: #{coffeeItem.stock}
   
-  a(href= coffeeItem.url + "/update") 
-    button(class="update-inventory") Update
+  
+  div(class="d-flex")
+    a(href= coffeeItem.url + "/update") 
+      button(class="update-inventory") Update
 
-  form(method="post" action=coffeeItem.url + "/delete")
-    button(type="submit" class="delete-inventory") Delete
+    form(method="post" action=coffeeItem.url + "/delete")
+      button(type="submit" class="delete-inventory") Delete
 
