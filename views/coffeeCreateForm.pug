@@ -1,20 +1,25 @@
 extends layout
 
 block content
-    h1 Create new coffee
+    div(class="mb-3")
+        h1 Create new coffee
 
-    form(method="post")
+    form(method="post" class="")
         div(class="form-group")
             label(for="name") Name
             input(type="text" name="name" class="form-control" aria-describedby="name" value="")
             
         div(class="form-group")
+            label(for="categories") Roast
+            select(name="categories" class="form-control" id="exampleFormControlSelect1")
+                option(value="light roast") Light Roast
+                option(value="medium roast") Medium Roast
+                option(value="dark roast") Dark Roast
+                option(value="espresso roast") Espresso
+     
+        div(class="form-group")
             label(for="description") Description
             input(type="text" name="description" class="form-control" aria-describedby="description" value="")
-
-        div(class="form-group")
-            label(for="categories") Roast
-            input(type="text" name="categories" class="form-control" aria-describedby="roast" value="")
 
         div(class="form-group")
             label(for="brands") Brand
@@ -24,10 +29,11 @@ block content
 
         div(class="form-group")
             label(for="price") Price
+            span(style="position: relative; top: 35px; right: 28px;") $
             input(type="text" name="price" class="form-control" aria-describedby="price" value="")
 
         div(class="form-group")
-            label(for="location") Location
+            label(for="location") City
             input(type="text" name="location" class="form-control" aria-describedby="location" value="")
 
         div(class="form-group")

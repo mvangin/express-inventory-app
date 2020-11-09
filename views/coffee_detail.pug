@@ -1,20 +1,27 @@
 extends layout
 
 block content
-  h1 #{coffeeItem.name}
-  ul(class="coffee-detail")   
-    li Description: #{coffeeItem.description}
-    li Roasting: #{coffeeItem.categories}
-    li Brand: #{coffeeItem.brand.name}
-    li Price: $#{coffeeItem.price}
-    li Roasting Location: #{coffeeItem.location}
-    li Stock: #{coffeeItem.stock}
-  
-  
-  div(class="d-flex")
-    a(href= coffeeItem.url + "/update") 
-      button(class="update-inventory") Update
+  div(class="card text-center" style="padding-bottom: 0px !important;")
+    div(class="card-header text-danger")
+      h4 #{coffeeItem.name}
+    div(class="card-body" style="padding-bottom: 0px;")
+      h4(class="card-title") Created by 
+        b #{coffeeItem.brand.name}, 
+        span  #{coffeeItem.location}, CA, USA
+      img(src='https://www.cancer.org/content/dam/cancer-org/images/photographs/single-use/espresso-coffee-cup-with-beans-on-table-restricted.jpg' style="width: 18rem")
+      p(class="card-text") 
+        h4
+          i #{coffeeItem.categories}: #{coffeeItem.description}
+        h5(class="text-dark") Price: $#{coffeeItem.price}
 
-    form(method="post" action=coffeeItem.url + "/delete")
-      button(type="submit" class="delete-inventory") Delete
+    div(class="d-flex justify-content-center")
+      a(href=coffeeItem.url + "/update") 
+        button(class="update-inventory") Update
+      form(method="post" action=coffeeItem.url + "/delete")
+        button(type="submit" class="delete-inventory") Delete
+
+    div(class="card-footer text-muted")
+      br
+      p(style="font-size: 1rem;") Stock: #{coffeeItem.stock}
+
 

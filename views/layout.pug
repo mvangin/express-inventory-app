@@ -6,29 +6,39 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
 
   body
-    nav(class="navbar navbar-expand-sm navbar-light bg-light fixed-top")
+    nav(class="navbar navbar-expand-md navbar-light bg-light fixed-top")
         button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
           span(class="navbar-toggler-icon")
-        a(class="navbar-brand navbar-brand-color" href="/catalog") Snuffels Coffee Inventory
+        a(class="navbar-brand navbar-brand-color mr-0" href="/catalog") Snuffels Coffee Inventory
 
     
         div(class="collapse navbar-collapse" id="navbarSupportedContent")
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            li(class="nav-item dropdown")
-              a(class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Brands
+          <ul class="navbar-nav ml-auto mt-1 mt-lg-0 mr-lg-2">
+            li(class="nav-item dropdown mr-1")
+              a(class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Current Partners
               div(class="dropdown-menu" aria-labelledby="navbarDropdown")
                 a(class="dropdown-item" href="/catalog/brand") View All Brands
                 div(class="dropdown-divider")
                 a(class="dropdown-item" href="/catalog/brand/create") Add Brand
 
-            li(class="nav-item dropdown")
-              a(class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Coffee
+            li(class="nav-item dropdown mr-lg-2")
+              a(class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Coffee Options
               div(class="dropdown-menu" aria-labelledby="navbarDropdown")
                 a(class="dropdown-item" href="/catalog/coffee") View All Coffee
                 div(class="dropdown-divider")
                 a(class="dropdown-item" href="/catalog/coffee/create") Add Coffee
 
-
+            li(class="nav-item dropdown mr-lg-2")
+              a(class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Choose your Roast
+              div(class="dropdown-menu" aria-labelledby="navbarDropdown")
+                a(class="dropdown-item" href="/catalog/coffee/roast/light") Light Roast
+                div(class="dropdown-divider")
+                a(class="dropdown-item" href="/catalog/coffee/roast/medium") Medium Roast
+                div(class="dropdown-divider")
+                a(class="dropdown-item" href="/catalog/coffee/roast/dark") Dark Roast
+                div(class="dropdown-divider")
+                a(class="dropdown-item" href="/catalog/coffee/roast/espresso") Espresso Roast
+                div(class="dropdown-divider")
 
   body(class="container")
     block content

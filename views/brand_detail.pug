@@ -1,14 +1,24 @@
 extends layout
 
 block content
-  h1 #{brandItem.name}
-  ul
-    li Description: #{brandItem.description}
-  
-  h2 Coffee types
-  each brand in brandCoffee
-    li= brand.name
-    br 
+  div(class="card text-center" style="padding-bottom: 0px !important;")
+    div(class="card-header text-danger")
+      h4 #{brandItem.name}
+    div(class="card-body" style="padding-bottom: 0px;")
+      h4(class="card-title mt-1 mb-5") 
+        i #{brandItem.description}
+      div(class="d-flex justify-content-center justify-content-md-around flex-wrap text-center") 
+        each brand in brandCoffee
+            div(class="card mb-3" style="width: 18rem;")
+                img(class="card-img-top" src="https://cdn.pixabay.com/photo/2015/09/01/21/00/coffee-917613_960_720.jpg" alt="Card image cap")
+                div(class="card-body")
+                    h5(class="card-title") #{brand.name}
+                    p(class="card-text") 
+                      a(class="btn coffeeButton btn-danger" href=brand.url) Details
+    
+    
+    div(class="card-footer text-muted")
+      form(method="post" action=brandItem.url + "/delete")
+      button(type="submit" class="delete-inventory btn-secondary") Remove company
 
-  form(method="post" action=brandItem.url + "/delete")
-    button(type="submit" class="delete-inventory btn-secondary") Delete
+
