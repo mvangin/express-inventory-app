@@ -20,6 +20,9 @@ router.get('/coffee/create', coffeeController.coffeeCreateGet);
 
 router.post('/coffee/create', coffeeController.coffeeCreatePost);
 
+router.get('/coffee/roast/:categories', coffeeController.coffeeRoastGet)
+
+
 router.get('/coffee/:id', coffeeController.coffeeDetail)
 //router.get('/bikeInstance', coffeeController.bikeInstance);
 

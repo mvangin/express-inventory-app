@@ -5,8 +5,13 @@ block content
         h1= `Update ${coffeeItem.name}`
         
     div(class="container")
-        form(method="post")
-        
+        form(method="post" class="")
+            if errors
+                ul
+                    each error in errors
+                        li(class="text-danger" style="list-style-type: disc")
+                            i=error.msg
+
             div(class="form-group")
                 label(for="name") Name
                 input(type="text" name="name" class="form-control" aria-describedby="name" value=`${coffeeItem.name}`)
@@ -36,7 +41,7 @@ block content
             div(class="form-group")
                 label(for="price") Price
                 span(style="position: relative; top: 35px; right: 28px;") $
-                input(type="text" name="price" class="form-control" aria-describedby="price" placeholder="$" value=`${coffeeItem.price}`)
+                input(type="text" name="price" class="form-control" aria-describedby="price" value=`${coffeeItem.price}`)
 
             div(class="form-group")
                 label(for="location") City

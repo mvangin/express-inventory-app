@@ -2,43 +2,50 @@ extends layout
 
 block content
     div(class="mb-3")
-        h1 Create new coffee
+        h1 
 
     form(method="post" class="")
+        if errors
+            ul
+                each error in errors
+                    li(class="text-danger" style="list-style-type: disc")
+                        i=error.msg
         div(class="form-group")
             label(for="name") Name
-            input(type="text" name="name" class="form-control" aria-describedby="name" value="")
-            
+            input(type="text" name="name" class="form-control" aria-describedby="name" value=(coffee ? coffee.name : ""))
+
         div(class="form-group")
             label(for="categories") Roast
             select(name="categories" class="form-control" id="exampleFormControlSelect1")
-                option(value="light roast") Light Roast
+                option(value="light roast")  Light Roast
                 option(value="medium roast") Medium Roast
                 option(value="dark roast") Dark Roast
                 option(value="espresso roast") Espresso
-     
-        div(class="form-group")
-            label(for="description") Description
-            input(type="text" name="description" class="form-control" aria-describedby="description" value="")
 
         div(class="form-group")
+            label(for="description") Description
+            input(type="text" name="description" class="form-control" aria-describedby="description" value=(coffee? coffee.description : ""))
+    
+            div(class="form-group")
             label(for="brands") Brand
             select(name="brand" class="form-control" aria-describedby="brands" id="brands" value="")
                 each brand in brands
-                    option(value=brand._id)= brand.name
-
+                    if brand===selectedBrand
+                        option(value=brand._id selected)= brand.name
+                    else 
+                        option(value=brand._id)= brand.name
         div(class="form-group")
             label(for="price") Price
             span(style="position: relative; top: 35px; right: 28px;") $
-            input(type="text" name="price" class="form-control" aria-describedby="price" value="")
+            input(type="text" name="price" class="form-control" aria-describedby="price" value=coffee ? coffee.price : "")
 
         div(class="form-group")
             label(for="location") City
-            input(type="text" name="location" class="form-control" aria-describedby="location" value="")
+            input(type="text" name="location" class="form-control" aria-describedby="location" value=coffee ? coffee.location : "")
 
         div(class="form-group")
             label(for="stock") Stock
-            input(type="text" name="stock" class="form-control" aria-describedby="stock" value="")
+            input(type="text" name="stock" class="form-control" aria-describedby="stock" value=coffee ? coffee.stock : "")
 
-        button(type="submit" class="btn btn-danger" action='/catalog/coffee/create') Create
+        button(type="submit" class="btn btn-danger" action='/catalog/coffee/create') Submit
 
