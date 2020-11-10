@@ -43,6 +43,12 @@ router.post("/brand/create", brandController.brandCreatePost)
 
 router.get('/brand/:id', brandController.brandDetail)
 
+router.get('/brand/:id/update', brandController.brandUpdateGet)
+
+router.post('/brand/:id/update', brandController.brandUpdatePost)
+
+
+
 router.post('/brand/:id/delete', brandController.brandDeletePost)
 
 //router.get('/brand', brandController.BrandList);
