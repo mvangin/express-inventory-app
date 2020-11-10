@@ -8,7 +8,7 @@ var categoryController = require('../controllers/categoryController')
 
 
 router.get('/', function(req,res,err) {
-    res.render('index', {title: "hello"})
+    res.render('index', {title: "Snuffels"})
 })
 
 //router.get('/category', categoryController.CategoryList)
