@@ -15,7 +15,7 @@ var app = express();
 var mongoose = require('mongoose');
 const router = require('./routes/catalog');
 
-var dev_db_url ='mongodb+srv://mavangin:4UCRRJnlEto6SOHA@cluster0.cvcb7.mongodb.net/inventory_app?retryWrites=true&w=majority';
+var dev_db_url = MONGO_DB
 
 var mongoDB = process.env.MONGODB_URI || dev_db_url;
 
