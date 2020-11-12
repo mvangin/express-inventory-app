@@ -1,3 +1,4 @@
+require('dotenv').config()
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -15,7 +16,7 @@ var app = express();
 var mongoose = require('mongoose');
 const router = require('./routes/catalog');
 
-var dev_db_url = MONGO_DB
+var dev_db_url = process.env.MONGODB_URI;
 
 var mongoDB = process.env.MONGODB_URI || dev_db_url;
 
