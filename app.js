@@ -14,7 +14,7 @@ var app = express();
 //Set up mongoose connection
 var mongoose = require('mongoose');
 const router = require('./routes/catalog');
-var mongoDB = 'mongodb+srv://mavangin:4UCRRJnlEto6SOHA@cluster0.cvcb7.mongodb.net/inventory_app?retryWrites=true&w=majority';
+var mongoDB = MONGODB_URI; 
 mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
