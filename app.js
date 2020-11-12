@@ -15,7 +15,7 @@ var app = express();
 //Set up mongoose connection
 var mongoose = require('mongoose');
 const router = require('./routes/catalog');
-var mongoDB = MONGODB_URI; 
+var mongoDB = process.env.MONGODB_URI
 mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
