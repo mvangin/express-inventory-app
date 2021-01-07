@@ -68,7 +68,7 @@ exports.brandDeletePost = function (req, res, next) {
         }
 
         if (results.brandCoffee.length > 0) {
-            res.render('brand_detail', { brandItem: results.brandItem, brandCoffee: results.brandCoffee, errors: "Associated Coffee must be delete first" })
+            res.render('brand_detail', { brandItem: results.brandItem, brandCoffee: results.brandCoffee, errors: "Associated Coffee must be deleted first" })
         } else {
             Brand.findByIdAndRemove(req.params.id, {}, function (err) {
                 if (err) {
