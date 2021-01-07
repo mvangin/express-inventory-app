@@ -1,6 +1,8 @@
 let Brand = require('../models/brand')
 let async = require('async')
 const Coffee = require('../models/coffee')
+const { body, validationResult } = require('express-validator');
+
 
 exports.brandList = function (req, res, next) {
     Brand.find({}, 'name description')
@@ -52,6 +54,53 @@ exports.brandCreatePost = function (req, res, next) {
     })
 }
 
+
+
+
+exports.brandUpdateGet = function (req, res, next) {
+
+    Brand.findById(req.params.id)
+        .exec(function (err, brand) {
+            if (err) {
+                return next(err)
+            }
+            res.render('brandCreate', { brand })
+        })
+}
+
+exports.brandUpdatePost = [
+    body('name', 'name required').trim().isLength({ min: 1 }).escape(),
+    body('description', 'description required').trim().isLength({ min: 1 }).escape(),
+
+    function (req, res, next) {
+
+        const errors = validationResult(req);
+
+        let brand = new Brand({
+            name: req.body.name,
+            description: req.body.description,
+            _id: req.params.id
+        })
+
+
+        if (!errors.isEmpty()) {
+            console.log(errors)
+            res.render('brandCreate', { brand, errors: errors.array() })
+
+        } else {
+
+            Brand.findByIdAndUpdate(req.params.id, brand, function (err, brandItem) {
+                if (err) {
+                    return next(err);
+                }
+                // Successful - redirect to book detail page.
+                res.redirect(brandItem.url);
+            });
+        }
+    }
+]
+
+
 exports.brandDeletePost = function (req, res, next) {
     async.parallel({
         brandItem: function (callback) {
@@ -79,5 +128,5 @@ exports.brandDeletePost = function (req, res, next) {
         }
     })
 }
-    
+
 

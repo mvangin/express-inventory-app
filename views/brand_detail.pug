@@ -18,6 +18,8 @@ block content
     
     
     div(class="card-footer text-muted")
+      a(href=brandItem.url + "/update") 
+        button(class="update-inventory") Update
       form(method="post" action=brandItem.url + "/delete")
         button(type="submit" class="delete-inventory btn-secondary") Remove company
     if errors
