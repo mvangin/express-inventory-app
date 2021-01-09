@@ -1,8 +1,10 @@
-<h1 class="text-center">
-  <br>
+<h1>
+  CedarWing Coffee Inventory
+</h1>
+<br>
   <img src="/CoffeeInventoryApp.png" alt="CedarWing" width="400"></a>
   <br>
-</h1>
+
 
 ## Key Features
 *  CedarWing Coffee Inventory
