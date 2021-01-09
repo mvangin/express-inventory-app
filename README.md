@@ -1,10 +1,8 @@
-<h1>
-  CedarWing Coffee Inventory
-</h1>
-<br>
-  <img src="/CoffeeInventoryApp.png" alt="CedarWing" width="400"></a>
-  <br>
+## CedarWing Coffee Inventory
 
+<div>
+<img src="/CoffeeInventoryApp.png" alt="CedarWing" width="400">
+</div>
 
 ## Key Features
 *  CedarWing Coffee Inventory
@@ -16,5 +14,6 @@
 * Implemented Mongoose queries to sort coffee by brand and roast level
 
 * Input sanitization, validation, and error handling
+
 
 
