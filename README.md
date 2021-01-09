@@ -15,4 +15,4 @@
 * Input sanitization, validation, and error handling
 
 ### Demo
-View live demo on [heroku](https://cedarwing.herokuapp.com/). Initial startup may be slow as heroku loads.
+View live demo on [heroku](https://cedarwing.herokuapp.com/) (free hosting version, initial startup may be slow).
