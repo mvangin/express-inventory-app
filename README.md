@@ -1,4 +1,4 @@
-<h1>
+<h1 class="text-center">
   <br>
   <img src="/CoffeeInventoryApp.png" alt="CedarWing" width="400"></a>
   <br>
