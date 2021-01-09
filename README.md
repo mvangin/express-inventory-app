@@ -5,7 +5,6 @@
 </div>
 
 ## Key Features
-*  CedarWing Coffee Inventory
 
 * Create, read, update, and delete coffee and associated brand inventory
 
