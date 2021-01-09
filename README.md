@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 ## CedarWing Coffee Inventory
 
 <div>
@@ -18,4 +16,3 @@
 
 ### Demo
 View live demo on [heroku](https://cedarwing.herokuapp.com/). Initial startup may be slow as heroku loads.
->>>>>>> 422e4ce2858533863a2c441e2081e3e8563c5003
