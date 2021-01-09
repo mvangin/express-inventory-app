@@ -4,7 +4,7 @@
 <img src="/CoffeeInventoryApp.png" alt="CedarWing" width="400">
 </div>
 
-## Key Features
+### Key Features
 
 * Create, read, update, and delete coffee and associated brand inventory
 
@@ -14,5 +14,5 @@
 
 * Input sanitization, validation, and error handling
 
-# Demo
+### Demo
 View live demo on [heroku](https://cedarwing.herokuapp.com/). Initial startup may be slow as heroku loads.
