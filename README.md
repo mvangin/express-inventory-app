@@ -1,11 +1,11 @@
 <h1>
-  CedarWing Coffee Inventory
   <br>
   <img src="/CoffeeInventoryApp.png" alt="CedarWing" width="400"></a>
   <br>
 </h1>
 
 ## Key Features
+*  CedarWing Coffee Inventory
 
 * Create, read, update, and delete coffee and associated brand inventory
 
